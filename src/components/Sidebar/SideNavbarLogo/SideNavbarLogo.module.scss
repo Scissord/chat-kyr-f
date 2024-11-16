@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  background-color: $bg;
+  position: relative;
+  height: 50px;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  position: absolute;
+  left: 0;
+}
+
+.logo {
+	cursor: pointer;
+	height: 30px;
+  background: $bg;
+  margin-right: 6px;
+}
+
+.label {
+  background: $primary-color;
+  // background: linear-gradient(140deg, #30dda3, #ffa3ff, #08cefa);
+
+  cursor: pointer;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 3s infinite linear;
+  background-size: 200% auto;
+
+  font-family: "Tomorrow", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  user-select: none;
+  font-size: 24px;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

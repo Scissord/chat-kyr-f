@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "allowJs": true,  // Allow JavaScript files
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Absolute Paths */
+    "baseUrl": "./src",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@components": ["components/lib"],
+      "@hooks": ["hooks/lib"],
+      "@constants": ["constants/lib"],
+      "@ui": ["ui/lib"],
+      "@icons": ["icons/lib"],
+      "@interfaces": ["interfaces/lib"],
+      "@routes": ["routes/routes"],
+      "@layout": ["layouts/lib"],
+      "@store/*": ["store/*"],
+      "@context": ["context/lib"],
+      "@utils": ["utils/lib"],
+      "@validation": ["validation/lib"],
+      "@axios": ["axios/config"],
+    }
+  },
+  "include": [
+    "src",
+    "src/**/*.js",
+    "src/**/*.jsx"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
