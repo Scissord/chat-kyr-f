@@ -49,6 +49,12 @@ const Certificates: FC<CertificatesProps> = (props) => {
       >
         2. ManBalance
       </p>
+      <p
+        className={css.p}
+        onClick={() => handleSetCert('/templates/check.jpg')}
+      >
+        3. Счет на оплату
+      </p>
     </>
   );
 };
