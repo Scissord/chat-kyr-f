@@ -49,11 +49,10 @@ const AddModal: FC<Props> = ({ fetchCustomers }) => {
 
   const formatPhoneNumber = (phoneNumber: string) => {
     if (phoneNumber.length === 0) return '';
-    if (phoneNumber.length <= 1) return `+7-(${phoneNumber}`;
-    if (phoneNumber.length <= 4) return `+7-(${phoneNumber.slice(1)}`;
-    if (phoneNumber.length <= 7) return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4)}`;
-    if (phoneNumber.length <= 9) return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7)}`;
-    return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7, 9)}-${phoneNumber.slice(9, 11)}`;
+    if (phoneNumber.length <= 3) return `+996 (${phoneNumber}`;
+    if (phoneNumber.length <= 6) return `+996 (${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+    if (phoneNumber.length <= 8) return `+996 (${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 5)}-${phoneNumber.slice(5)}`;
+    return `+996 (${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 5)}-${phoneNumber.slice(5, 7)}-${phoneNumber.slice(7, 9)}`;
   };
 
   return (
@@ -75,7 +74,7 @@ const AddModal: FC<Props> = ({ fetchCustomers }) => {
         />
       </div>
       <div className='flex items-center gap-3'>
-        <p className='w-32 font-semibold text-sm'>Номер:</p>
+        <p className='w-32 font-semibold text-sm'>Доп номер:</p>
         <input
           type="text"
           value={phone}

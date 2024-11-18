@@ -37,39 +37,15 @@ const Certificates: FC<CertificatesProps> = (props) => {
       <h1 className='font-bold text-xl text-black dark:text-white'>Сертификаты</h1>
       <p
         className={css.p}
-        onClick={() => handleSetCert('/templates/alco-cert.jpg')}
-      >
-        1. AlcoBalance
-      </p>
-      <p
-        className={css.p}
-        onClick={() => handleSetCert('/templates/body-cert.jpg')}
-      >
-        2. BodyBalance
-      </p>
-      <p
-        className={css.p}
-        onClick={() => handleSetCert('/templates/ero-cert.jpg')}
-      >
-        3. EroKing
-      </p>
-      <p
-        className={css.p}
         onClick={() => handleSetCert('/templates/flex-cert.jpg')}
       >
-        4. FlexBalance
-      </p>
-      <p
-        className={css.p}
-        onClick={() => handleSetCert('/templates/libido-cert.jpg')}
-      >
-        4. LibidoBalance
+        1. FlexBalance
       </p>
       <p
         className={css.p}
         onClick={() => handleSetCert('/templates/man-cert.jpg')}
       >
-        4. ManBalance
+        2. ManBalance
       </p>
     </>
   );
