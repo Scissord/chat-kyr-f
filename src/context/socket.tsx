@@ -47,7 +47,7 @@ export const SocketContextProvider: FC<SocketProps> = ({ children }) => {
   useEffect(() => {
     if (user) {
       const userId = user.id;
-      const ws = new WebSocket(`wss://ai.restrain.pw/ws/${userId}`);
+      const ws = new WebSocket(`wss://server.tc-chat-kyr.pw/ws/${userId}`);
 
       ws.onopen = () => {
         console.log("WebSocket connected");
