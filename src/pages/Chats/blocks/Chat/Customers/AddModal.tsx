@@ -48,11 +48,24 @@ const AddModal: FC<Props> = ({ fetchCustomers }) => {
   };
 
   const formatPhoneNumber = (phoneNumber: string) => {
-    if (phoneNumber.length === 0) return '';
-    if (phoneNumber.length <= 3) return `+996 (${phoneNumber}`;
-    if (phoneNumber.length <= 6) return `+996 (${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
-    if (phoneNumber.length <= 8) return `+996 (${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 5)}-${phoneNumber.slice(5)}`;
-    return `+996 (${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 5)}-${phoneNumber.slice(5, 7)}-${phoneNumber.slice(7, 9)}`;
+    // Обрезаем до 9 цифр, так как формат +996 (XXX) XXX-XXX требует только 9 цифр номера
+    const trimmed = phoneNumber.substring(0, 9);
+
+    // Разбиваем по частям: XXX, XXX, XXX
+    const part1 = trimmed.substring(0, 3);
+    const part2 = trimmed.substring(3, 6);
+    const part3 = trimmed.substring(6, 9);
+
+    // Собираем номер с пробелами и дефисами
+    if (part3) {
+      return `+996 (${part1}) ${part2}-${part3}`;
+    } else if (part2) {
+      return `+996 (${part1}) ${part2}`;
+    } else if (part1) {
+      return `+996 (${part1}`;
+    } else {
+      return "+996";
+    }
   };
 
   return (
