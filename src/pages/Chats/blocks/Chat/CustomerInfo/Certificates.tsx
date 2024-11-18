@@ -27,6 +27,8 @@ const Certificates: FC<CertificatesProps> = (props) => {
 
     const blob = await response.blob();
     const file = new File([blob], name, { type: 'image/jpeg' });
+
+    console.log(file);
     setMessage("");
     setFile(file);
     setLoading(false);
