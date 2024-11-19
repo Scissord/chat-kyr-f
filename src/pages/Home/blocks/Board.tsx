@@ -70,7 +70,7 @@ const Board: FC = memo(() => {
           <IconReload/>
         </div>
         <p className={css.label}>Воронка</p>
-        <div className={css.inputWrapper}>
+        {/* <div className={css.inputWrapper}>
           <input
             type="text"
             value={search}
@@ -82,7 +82,7 @@ const Board: FC = memo(() => {
           <div className={css.iconPosition}>
             <IconSearch/>
           </div>
-        </div>
+        </div> */}
       </section>
       <section className={css.bottom_section}>
         <DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>
