@@ -45,9 +45,21 @@ const Certificates: FC<CertificatesProps> = (props) => {
       </p>
       <p
         className={css.p}
+        onClick={() => handleSetCert('/templates/flex-halal-cert.webp')}
+      >
+        1.1 Халал FlexBalance
+      </p>
+      <p
+        className={css.p}
         onClick={() => handleSetCert('/templates/man-cert.jpg')}
       >
         2. ManBalance
+      </p>
+      <p
+        className={css.p}
+        onClick={() => handleSetCert('/templates/man-halal-cert.webp')}
+      >
+        2.2 Халал ManBalance
       </p>
       <p
         className={css.p}
