@@ -28,7 +28,6 @@ const Certificates: FC<CertificatesProps> = (props) => {
     const blob = await response.blob();
     const file = new File([blob], name, { type: 'image/jpeg' });
 
-    console.log(file);
     setMessage("");
     setFile(file);
     setLoading(false);
@@ -51,6 +50,12 @@ const Certificates: FC<CertificatesProps> = (props) => {
       </p>
       <p
         className={css.p}
+        onClick={() => handleSetCert('/products/flex-balance.webp')}
+      >
+        1.2 Фото FlexBalance
+      </p>
+      <p
+        className={css.p}
         onClick={() => handleSetCert('/templates/man-cert.jpg')}
       >
         2. ManBalance
@@ -59,7 +64,13 @@ const Certificates: FC<CertificatesProps> = (props) => {
         className={css.p}
         onClick={() => handleSetCert('/templates/man-halal-cert.webp')}
       >
-        2.2 Халал ManBalance
+        2.1 Халал ManBalance
+      </p>
+      <p
+        className={css.p}
+        onClick={() => handleSetCert('/products/man-balance.webp')}
+      >
+        2.2 Фото ManBalance
       </p>
       <p
         className={css.p}
