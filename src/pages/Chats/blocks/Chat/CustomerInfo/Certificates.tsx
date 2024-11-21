@@ -74,7 +74,7 @@ const Certificates: FC<CertificatesProps> = (props) => {
       </p>
       <p
         className={css.p}
-        onClick={() => handleSetCert('/templates/check.jpg')}
+        onClick={() => handleSetCert('/templates/payment-check.jpg')}
       >
         3. Счет на оплату
       </p>
