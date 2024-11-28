@@ -15,7 +15,7 @@ const Conversations: FC = () => {
     >
       <TopCustomers/>
       <MiddleCustomers/>
-      <FloatingButton />
+      {/* <FloatingButton /> */}
     </div>
   )
 }
