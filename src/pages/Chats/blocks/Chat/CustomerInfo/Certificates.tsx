@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 type CertificatesProps = {
-  setFile: (obj: File) => void;
+  setFile: (obj: File | null) => void;
   setMessage: (val: string) => void;
   setLoading: (val: boolean) => void;
 };
@@ -30,6 +30,13 @@ const Certificates: FC<CertificatesProps> = (props) => {
 
     setMessage("");
     setFile(file);
+    setLoading(false);
+  };
+
+  const handleSetUrl = async (url: string) => {
+    setLoading(true);
+    setMessage(url);
+    setFile(null);
     setLoading(false);
   };
 
@@ -68,7 +75,7 @@ const Certificates: FC<CertificatesProps> = (props) => {
       </p>
       <p
         className={css.p}
-        onClick={() => handleSetCert('/products/man-balance.webp')}
+        onClick={() => handleSetCert('/products/man.png')}
       >
         2.2 Фото ManBalance
       </p>
@@ -83,6 +90,12 @@ const Certificates: FC<CertificatesProps> = (props) => {
         onClick={() => handleSetCert('/videos/payment.mp4')}
       >
         3. Инструкция счета на оплату
+      </p>
+      <p
+        className={css.p}
+        onClick={() => handleSetUrl('balance-vita.com/')}
+      >
+        balance-vita.com/
       </p>
     </>
   );
