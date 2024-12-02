@@ -75,7 +75,7 @@ const Certificates: FC<CertificatesProps> = (props) => {
       </p>
       <p
         className={css.p}
-        onClick={() => handleSetCert('/products/man.png')}
+        onClick={() => handleSetCert('/templates/man.png')}
       >
         2.2 Фото ManBalance
       </p>
