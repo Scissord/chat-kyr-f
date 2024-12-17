@@ -108,7 +108,7 @@ const Certificates: FC<CertificatesProps> = (props) => {
       </p>
       <p
         className={css.p}
-        onClick={() => handleSetVideo('/videos/mplus_compressed.mp4')}
+        onClick={() => handleSetVideo('/videos/mplus.mp4')}
       >
         4. Рассрочка МПлюс часть 1
       </p>
