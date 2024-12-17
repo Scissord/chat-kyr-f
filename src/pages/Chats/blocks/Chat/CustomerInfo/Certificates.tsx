@@ -89,7 +89,19 @@ const Certificates: FC<CertificatesProps> = (props) => {
         className={css.p}
         onClick={() => handleSetCert('/videos/payment.mp4')}
       >
-        3. Инструкция счета на оплату
+        3.1 Инструкция счета на оплату
+      </p>
+      <p
+        className={css.p}
+        onClick={() => handleSetCert('/videos/mplus.mp4')}
+      >
+        4. Рассрочка МПлюс часть 1
+      </p>
+      <p
+        className={css.p}
+        onClick={() => handleSetCert('/videos/mplus2.mp4')}
+      >
+        4.1 Рассрочка МПлюс часть 2
       </p>
       <p
         className={css.p}
