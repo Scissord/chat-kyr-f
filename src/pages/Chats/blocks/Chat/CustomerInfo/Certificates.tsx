@@ -102,7 +102,7 @@ const Certificates: FC<CertificatesProps> = (props) => {
       </p>
       <p
         className={css.p}
-        onClick={() => handleSetVideo('/videos/pay.mp4')}
+        onClick={() => handleSetVideo('/videos/payment.mp4')}
       >
         3.1 Инструкция счета на оплату
       </p>
