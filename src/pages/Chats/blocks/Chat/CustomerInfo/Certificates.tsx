@@ -33,6 +33,21 @@ const Certificates: FC<CertificatesProps> = (props) => {
     setLoading(false);
   };
 
+  const handleSetVideo = async (url: string) => {
+    setLoading(true);
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Image fetch failed');
+
+    const name = url.split('/').pop()?.split('?')[0] || 'video.mp4';
+    const blob = await response.blob();
+
+    const file = new File([blob], name, { type: 'video/mp4' });
+
+    setMessage("");
+    setFile(file);
+    setLoading(false);
+  };
+
   const handleSetUrl = async (url: string) => {
     setLoading(true);
     setMessage(url);
@@ -87,19 +102,19 @@ const Certificates: FC<CertificatesProps> = (props) => {
       </p>
       <p
         className={css.p}
-        onClick={() => handleSetCert('/videos/payment.mp4')}
+        onClick={() => handleSetVideo('/videos/payment.mp4')}
       >
         3.1 Инструкция счета на оплату
       </p>
       <p
         className={css.p}
-        onClick={() => handleSetCert('/videos/mplus.mp4')}
+        onClick={() => handleSetVideo('/videos/mplus.mp4')}
       >
         4. Рассрочка МПлюс часть 1
       </p>
       <p
         className={css.p}
-        onClick={() => handleSetCert('/videos/mplus2.mp4')}
+        onClick={() => handleSetVideo('/videos/mplus2.mp4')}
       >
         4.1 Рассрочка МПлюс часть 2
       </p>
