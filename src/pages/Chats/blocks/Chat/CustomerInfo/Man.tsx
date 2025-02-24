@@ -23,9 +23,9 @@ const Man: FC<ManProps> = (props) => {
   const items = [
     { id: 'cert', label: '2.1 Сертификат ManBalance', i: 1 },
     { id: 'cert', label: '2.2 Сертификат Халал ManBalance', i: 2 },
-    // { id: 'audio', label: '4.2 Аудио отзыв улучшение подвижности', i: 1 },
-    // { id: 'audio', label: '4.2 Аудио отзыв суставы улучшились', i: 2 },
-    // { id: 'audio', label: '4.2 Аудио отзыв улучшение подвижности', i: 3 },
+    { id: 'audio', label: '1.3 Аудио отзыв 1', i: 1 },
+    { id: 'audio', label: '1.4 Аудио отзыв 2', i: 2 },
+    { id: 'audio', label: '1.5 Аудио отзыв 3', i: 3 },
     { id: 'pic', label: '2.3 Фото ManBalance', i: 1 },
   ];
 

@@ -23,10 +23,11 @@ const Flex: FC<FlexProps> = (props) => {
   const items = [
     { id: 'cert', label: '1.1 Сертификат FlexBalance', i: 1 },
     { id: 'cert', label: '1.2 Сертификат Халал FlexBalance', i: 2 },
-    // { id: 'audio', label: '4.2 Аудио отзыв улучшение подвижности', i: 1 },
-    // { id: 'audio', label: '4.2 Аудио отзыв суставы улучшились', i: 2 },
-    // { id: 'audio', label: '4.2 Аудио отзыв улучшение подвижности', i: 3 },
-    { id: 'pic', label: '1.3 Фото FlexBalance', i: 1 },
+    { id: 'audio', label: '1.3 Аудио отзыв 1', i: 1 },
+    { id: 'audio', label: '1.4 Аудио отзыв 2', i: 2 },
+    { id: 'audio', label: '1.5 Аудио отзыв 3', i: 3 },
+    { id: 'audio', label: '1.6 Аудио отзыв 4', i: 4 },
+    { id: 'pic', label: '1.7 Фото FlexBalance', i: 1 },
   ];
 
   return (
