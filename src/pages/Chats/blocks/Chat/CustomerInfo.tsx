@@ -1,19 +1,16 @@
 import { useChats, useViewContext } from '@context';
 import { FC, useEffect, useState } from 'react'
-import { Loader } from '@ui';
-import Certificates from './CustomerInfo/Certificates';
-// import Tags from './CustomerInfo/Tags';
+import Templates from './CustomerInfo/Templates';
 import Responsible from './CustomerInfo/Responsible';
 import axios from '@axios';
-import { ICustomer, IUser } from '@interfaces';
+import { IUser } from '@interfaces';
 
 const ConversationInfo: FC = () => {
-  const { customer, setCustomer, setFile, setMessage, fetchConversation } = useChats();
+  const { customer, setCustomer, handleSetUrl, handleSendCertificate } = useChats();
   const context = useViewContext();
-  const [loading, setLoading] = useState<boolean>(false);
   const [users, setUsers] = useState<IUser[] | []>([]);
   const [newManager, setNewManager] = useState<string>('disabled');
-  const [chats, setChats] = useState<any>([]);
+  const [chats, setChats] = useState<[]>([]);
 
   useEffect(() => {
     if(customer && customer.id) {
@@ -58,11 +55,6 @@ const ConversationInfo: FC = () => {
     });
   };
 
-  // const handleOpenNewChat = async (customer: ICustomer, newCustomerId: string) => {
-  //   setCustomer(customer);
-  //   fetchConversation(newCustomerId);
-  // };
-
   return (
     <div className='h-full w-full sm:w-1/4 border-r border-l border-slate-300 px-4 overflow-y-auto'>
       {customer ? (
@@ -77,17 +69,12 @@ const ConversationInfo: FC = () => {
             </p>
           </div>
           <div className='flex flex-col gap-2 border-t items-start border-slate-300 w-full px-2 py-2'>
-            {loading ? <Loader className='loading-lg'/> : (
-              <Certificates
-                setFile={setFile}
-                setLoading={setLoading}
-                setMessage={setMessage}
-              />
-            )}
+            <Templates
+              customer_id={customer.id}
+              handleSendCertificate={handleSendCertificate}
+              handleSetUrl={handleSetUrl}
+            />
           </div>
-          {/* <div className='flex flex-col gap-2 items-start border-t border-slate-300 w-full px-2 py-2'>
-            <Tags/>
-          </div> */}
           <div className='flex flex-col gap-2 items-start border-t border-slate-300 w-full px-2 py-2'>
             <Responsible manager={customer?.manager_name ? customer.manager_name : "Нет"}/>
             <select

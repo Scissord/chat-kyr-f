@@ -10,7 +10,7 @@ interface Params {
   limit: number;
   page: number;
   search?: string;
-};
+}
 
 interface ChatContextType {
   search: string;
@@ -37,7 +37,9 @@ interface ChatContextType {
   handleSendMessage: () => Promise<void>;
   isCustomersLoading: boolean;
   handleSyncChats: (customer_id: string | undefined) => Promise<void>;
-};
+  handleSendCertificate: (customer_id: string, product: string, type: string, i: number) => Promise<void>;
+  handleSetUrl: (url: string) => void;
+}
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
@@ -66,8 +68,18 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     if(localCustomer) {
       setCustomer(localCustomer);
       fetchConversation(localCustomer.id);
-    };
-  }, [localCustomer])
+    }
+  }, [localCustomer]);
+
+  useEffect(() => {
+    if (customer?.id) {
+      const intervalId = setInterval(() => {
+        handleSyncChats(customer.id);
+      }, 20000);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [customer?.id]);
 
   const fetchCustomers = async () => {
     setIsCustomersLoading(true);
@@ -92,7 +104,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
           setCustomers([...res.data.customers]);
         } else {
           setCustomers((prev) => [...prev, ...res.data.customers]);
-        };
+        }
 
         setIsCustomersLoading(false);
       })
@@ -167,8 +179,21 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
       .then((res) => {
         if(res.data.messages.length > 0) {
           setConversation(res.data.messages);
-          context?.notification.show('Чат синхронизирован!', 'success');
-        };
+        }
+      })
+      .catch(() => context?.notification.show('Ошибка при загрузке чата', 'error'));
+  };
+
+  const handleSendCertificate = async (customer_id: string, product: string, type: string, i: number) => {
+    await axios({
+      method: 'POST',
+      url: `/messages/template`,
+      data: {
+        customer_id, product, type, i
+      },
+    })
+      .then((res) => {
+        setConversation((prevConversation) => [...prevConversation, res.data.message]);
       })
       .catch(() => context?.notification.show('Ошибка при загрузке чата', 'error'));
   };
@@ -180,6 +205,11 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     }
 
     return true;
+  };
+
+  const handleSetUrl = async (url: string) => {
+    setMessage(url);
+    setFile(null);
   };
 
   return (
@@ -208,7 +238,9 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
         fetchConversation,
         handleSendMessage,
         isCustomersLoading,
-        handleSyncChats
+        handleSyncChats,
+        handleSendCertificate,
+        handleSetUrl
       }}
     >
       {children}
