@@ -29,15 +29,13 @@ const Templates: FC<CertificatesProps> = (props) => {
       <Flex customer_id={customer_id} handleSendCertificate={handleSendCertificate}/>
       <Man customer_id={customer_id} handleSendCertificate={handleSendCertificate}/>
       <Payment customer_id={customer_id} handleSendCertificate={handleSendCertificate}/>
-      <div className="flex flex-col gap-3 border px-2 py-2 w-full">
-        <p
-          key={'coupon'}
-          className={css.p}
-          onClick={() => handleSendCertificate(customer_id, 'coupon', 'coupon', 1)}
-        >
-          {"Купон 10%"}
-        </p>
-      </div>
+      <p
+        key={'coupon'}
+        className={css.p}
+        onClick={() => handleSendCertificate(customer_id, 'coupon', 'coupon', 1)}
+      >
+        {"Купон 10%"}
+      </p>
       <p
         className={css.p}
         onClick={() => handleSetUrl('balance-vita.com/')}
